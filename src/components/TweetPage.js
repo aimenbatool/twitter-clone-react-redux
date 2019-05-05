@@ -23,15 +23,15 @@ class TweetPage extends Component {
     }
 }
 
-const mapStateToProps = ({ authedUser, tweets, users }, props) => {
-    const { id } = props.match.params;
-
+function mapStateToProps ({ authedUser, tweets, users }, props) {
+    const { id } = props.match.params
+  
     return {
-        id,
-        replies: !tweets[id]
-            ? []
-            : tweets[id].replies.sort((a,b) => tweets[b].timestamps - tweets[a].timestamps)
+      id,
+      replies: !tweets[id]
+        ? []
+        : tweets[id].replies.sort((a,b,) => tweets[b].timestamp - tweets[a].timestamp)
     }
-}
+  }
 
 export default connect(mapStateToProps)(TweetPage);
